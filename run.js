@@ -15,17 +15,22 @@ module.exports = async ({testPath, config: {rootDir = process.cwd()}}) => {
   const end = +new Date()
 
   if (results.failures) {
-    return fail({
-      start,
-      end,
-      test: {
-        path: testPath,
-        errorMessage: 'Test failed, check screenshot and the video',
-        title: 'Cypress Error'
-      }
-    })
+    return {
+      ...fail({
+        start, end, test: {
+          path: testPath,
+          errorMessage: 'Test failed, check screenshot and the video',
+          title: 'Cypress Error'
+        }
+      }),
+      numFailingTests: results.failures,
+      numPassingTests: results.passes
+    }
   } else {
-    return pass({start, end, test: {path: testPath}})
+    return {
+      ...pass({start, end, test: {path: testPath}}),
+      numPassingTests: results.passes
+    }
   }
 
 }
