@@ -9,6 +9,6 @@
   "author": "Łukasz Gandecki <lgandecki@thebrain.pro>",
   "license": "ISC",
   "dependencies": {
-    "create-jest-runner-with-skip": "^0.1.1"
+    "create-jest-runner": "^0.6.0"
   }
 }
