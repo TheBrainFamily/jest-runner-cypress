@@ -1,4 +1,4 @@
-const {pass, fail} = require('create-jest-runner-with-skip')
+const {pass, fail} = require('create-jest-runner')
 
 const {getLocalCypress} = require('./helpers/getLocalCypress')
 
